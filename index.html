@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SafeHer - Women Safety App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+    <header>
+        <div class="container">
+            <a href="#" class="logo">SafeHer</a>
+            <nav>
+                <ul>
+                    <li><a href="#" id="about-link" data-target="about-section">About</a></li>
+                    <li><a href="#" id="features-link" data-target="features-detail-section">Features</a></li>
+                    <li>
+                        <div id="guest-links">
+                            <a href="#" id="open-login">Login</a>
+                            <a href="#app-interface" id="open-registration" class="btn">Register</a>
+                        </div>
+                        <div id="user-info" style="display: none;">
+                            <span>Hello, <span id="user-name"></span></span>
+                            <a href="#" id="logout-btn" class="btn">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="hero page-section active" id="home-section">
+            <div class="container">
+                <h1>SafeHer - Your Guardian Angel</h1>
+                <p>Empowering women with a powerful SOS app to ensure safety and peace of mind.</p>
+                <div class="hero-buttons">
+                    <a href="#app-interface" id="hero-get-started" class="btn">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <section class="features page-section" id="features-section">
+            <div class="container">
+                <h2 class="section-title">Key Features</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fas fa-satellite-dish"></i>
+                        <h3>Instant SOS Alert</h3>
+                        <p>One-touch alert to notify authorities and emergency contacts instantly.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Live Location Tracking</h3>
+                        <p>Share your real-time location with your trusted circle for timely assistance.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Trusted Contacts</h3>
+                        <p>Add and manage your family and friends as emergency contacts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="about-section" class="features page-section" style="display: none;">
+            <div class="container">
+                <h2 class="section-title">SafeHer વિષે</h2>
+                <p>
+                    SafeHer એ મહિલાઓની સુરક્ષા માટે એક શક્તિશાળી એપ્લિકેશન છે. અમારો મુખ્ય ઉદ્દેશ્ય મહિલાઓને એક એવું સાધન પૂરું પાડવાનો છે જેનાથી તેઓ કટોકટીના સમયે ઝડપી મદદ મેળવી શકે. અમે માનીએ છીએ કે ટેકનોલોજીનો ઉપયોગ કરીને આપણે એક સુરક્ષિત સમાજનું નિર્માણ કરી શકીએ છીએ, જ્યાં દરેક મહિલા નિર્ભયતાથી જીવી શકે.
+                </p>
+                <p>
+                    અમારી એપ્લિકેશન સરળતાથી ઉપયોગમાં લઈ શકાય તેવી રીતે ડિઝાઇન કરવામાં આવી છે, જેથી કોઈપણ પરિસ્થિતિમાં માત્ર એક બટન દબાવવાથી ત્વરિત એલર્ટ મોકલી શકાય. SafeHer સાથે, તમે ક્યારેય એકલા નથી.
+                </p>
+            </div>
+        </div>
+
+        <div id="features-detail-section" class="features page-section" style="display: none;">
+            <div class="container">
+              <h2>Main Features</h2>
+	<ul class="features-list">
+		<li><b>SOS Emergency Button:</b> One-tap sends instant alert to family, friends, police.</li>
+		<li><b>Live Location Sharing:</b> Shares real-time GPS location continuously until safe.</li>
+		<li><b>Fake Call Feature:</b> A call simulation to escape unsafe situations.</li>
+		<li><b>Send SMS Alert:</b> Pre-written emergency message goes to saved contacts.</li>
+		<li><b>Voice Activated SOS:</b> If user shouts a keyword (e.g., "Help"), SOS activates.</li>
+		<li><b>Nearby Police Station/Help Centers:</b> Shows nearest police station, hospital, NGOs.</li>
+		<li><b>Panic Alarm Sound:</b> Loud siren to alert people nearby.</li>
+		<li><b>Evidence Recorder:</b> Auto record audio/video when SOS is pressed.</li>
+		<li><b>Report Incident:</b> Easy way to report harassment anonymously.</li>
+	</ul>
+
+
+            </div>
+        </div>
+
+        <div id="app-interface" class="app-interface page-section" style="display: none;">
+            <div class="container">
+                <div class="tab-navigation" id="app-tabs">
+                    <div class="tab active" data-tab="profile">Profile</div>
+                    <div class="tab" data-tab="contacts">Contacts</div>
+                    <div class="tab" data-tab="watch">SOS Watch</div>
+                    <div class="tab" data-tab="alerts">Alert History</div>
+                </div>
+
+                <div class="card tab-content active" id="profile-tab">
+                    <h2 class="card-title">User Profile</h2>
+                    <form id="registration-form">
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" placeholder="Enter your email address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" placeholder="Enter your home address" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="medical-info">Medical Information</label>
+                            <textarea id="medical-info" placeholder="Any allergies, medical conditions, etc. (optional)"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" placeholder="Create a password" required>
+                        </div>
+                        <button type="submit" class="btn">Register & Save</button>
+                    </form>
+                </div>
+
+                <div class="card tab-content" id="contacts-tab">
+                    <h2 class="card-title">Emergency Contacts</h2>
+                    <div class="form-group">
+                        <label for="contact-name">Contact Name</label>
+                        <input type="text" id="contact-name" placeholder="Enter contact name">
+                    </div>
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" placeholder="Enter phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="relationship">Relationship</label>
+                        <select id="relationship">
+                            <option value="parent">Parent</option>
+                            <option value="sibling">Sibling</option>
+                            <option value="friend">Friend</option>
+                            <option value="relative">Relative</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button class="btn" id="add-contact">Add Contact</button>
+                    <ul class="contacts-list" id="contacts-list"></ul>
+                </div>
+
+                <div class="card tab-content" id="watch-tab">
+                    <h2 class="card-title">SOS Watch Interface</h2>
+                    <div class="watch-container">
+                        <div class="watch">
+                            <div class="sos-button" id="sos-button">SOS</div>
+                        </div>
+                        <p>In case of emergency, press the SOS button to alert authorities and your emergency contacts.</p>
+                        <p>Your live location and profile information will be shared immediately.</p>
+                    </div>
+                </div>
+
+                <div class="card tab-content" id="alerts-tab">
+                    <h2 class="card-title">Emergency Alert History</h2>
+                    <div class="alert-history" id="alert-history"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="alert-modal" id="alert-modal">
+        <div class="alert-content">
+            <h2>EMERGENCY ALERT ACTIVATED</h2>
+            <p>Help is on the way! Authorities and your emergency contacts have been notified.</p>
+            <div class="alert-timer" id="alert-timer">00:30</div>
+            <p id="location-status">Getting your location...</p>
+            
+            <div class="location-map">
+                <div id="mapid"></div>
+            </div>
+
+            <div class="camera-section">
+                <video id="camera-stream" autoplay muted></video>
+                <button id="camera-toggle" class="btn"><i class="fas fa-video"></i> Camera On</button>
+                <p id="camera-status"></p>
+            </div>
+            
+            <div class="sound-control">
+                <button class="sound-toggle" id="sound-toggle">
+                    <i class="fas fa-volume-mute"></i> Mute Sound
+                </button>
+            </div>
+            
+            <div class="emergency-contacts">
+                <div class="emergency-contact">
+                    <h3>Nearest Police Station</h3>
+                    <p id="police-distance">Calculating...</p>
+                    <p>Estimated arrival: --</p>
+                </div>
+                <div class="emergency-contact">
+                    <h3>Emergency Contacts Notified</h3>
+                    <p id="notified-contacts">Loading contacts...</p>
+                </div>
+            </div>
+            
+            <button class="btn" id="cancel-alert" style="margin-top: 30px; background: #00b894;">Cancel Alert</button>
+        </div>
+    </div>
+    
+    <div class="modal" id="login-modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-login-modal">&times;</span>
+            <h2 class="modal-title">Login to SafeHer</h2>
+            
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="login-phone">Phone Number</label>
+                    <input type="tel" id="login-phone" placeholder="Enter your phone number" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                
+                <button type="submit" class="btn">Login</button>
+            </form>
+            
+            <p style="text-align: center; margin-top: 20px;">
+                Don't have an account? <a href="#" id="switch-to-register">Register here</a>
+            </p>
+        </div>
+    </div>
+    
+    <div class="edit-modal" id="edit-modal">
+        <div class="edit-content">
+            <span class="close-modal" id="close-edit-modal">&times;</span>
+            <h2 class="modal-title">Edit Emergency Contact</h2>
+            
+            <form id="edit-contact-form">
+                <input type="hidden" id="edit-contact-index">
+                <div class="form-group">
+                    <label for="edit-contact-name">Contact Name</label>
+                    <input type="text" id="edit-contact-name" placeholder="Enter contact name" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-contact-phone">Phone Number</label>
+                    <input type="tel" id="edit-contact-phone" placeholder="Enter phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-relationship">Relationship</label>
+                    <select id="edit-relationship" required>
+                        <option value="parent">Parent</option>
+                        <option value="sibling">Sibling</option>
+                        <option value="friend">Friend</option>
+                        <option value="relative">Relative</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn">Update Contact</button>
+            </form>
+        </div>
+    </div>
+    
+    <a href="#" class="back-to-previous" style="display:none;">&lt; Back</a>
+
+    <footer>
+        <p>&copy; 2023 SafeHer - Women Safety App. All rights reserved.</p>
+    </footer>
+
+    <audio id="siren-sound" loop>
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-emergency-siren-1001.mp3" type="audio/mpeg">
+    </audio>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
